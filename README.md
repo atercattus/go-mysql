@@ -3,6 +3,10 @@
 A pure go library to handle MySQL network protocol and replication.
 
 ![semver](https://img.shields.io/github/v/tag/atercattus/go-mysql)
+![example workflow](https://github.com/atercattus/go-mysql/actions/workflows/ci.yml/badge.svg)
+![gomod version](https://img.shields.io/github/go-mod/go-version/atercattus/go-mysql/master)
+
+*In the original it was forked from abandoned [siddontang/go-mysql](https://github.com/siddontang/go-mysql) repo.*
 
 ## FAQ
 ### How to migrate to this repo
@@ -14,7 +18,7 @@ replace github.com/siddontang/go-mysql => github.com/atercattus/go-mysql v1.1.1
 v.1.1.1 - is the last tag in repo, feel free to choose what you want.
 
 ### Changelog
-This fork uses [Changelog](CHANGELOG.md).
+This repo uses [Changelog](CHANGELOG.md).
 
 ---
 
