@@ -1,26 +1,26 @@
 linters:
   disable-all: true
   enable:
-    # enabled by default in golangci-lint
+    # All code is ready for:
     - deadcode
     - errcheck
-    - gosimple
-    - govet
-    - ineffassign
     - staticcheck
     - structcheck
     - typecheck
     - unused
     - varcheck
-    # additional linters
-    - gocritic
-    - goimports
-    - golint
     - misspell
-    - nakedret
     - nolintlint
+    - goimports
+    - nakedret
     - unconvert
     - whitespace
+    # ToDo:
+    #- gosimple
+    #- govet
+    #- ineffassign
+    #- gocritic
+    #- golint
 linters-settings:
   nolintlint:
     allow-unused: false
