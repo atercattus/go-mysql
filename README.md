@@ -18,8 +18,6 @@ This fork uses [Changelog](CHANGELOG.md).
 
 ## Replication
 
-*Replication package has broken and disabled tests. Help appreciated.*
-
 Replication package handles MySQL replication protocol like [python-mysql-replication](https://github.com/noplay/python-mysql-replication).
 
 You can use it as a MySQL slave to sync binlog from master then do something, like updating cache, etc...
