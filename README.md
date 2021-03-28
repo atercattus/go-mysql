@@ -2,6 +2,20 @@
 
 A pure go library to handle MySQL network protocol and replication.
 
+## FAQ
+### How to migrate to this repo
+To change the used package in your repo it's enough to add this `replace` directive to your `go.mod`:
+```
+replace github.com/siddontang/go-mysql => github.com/atercattus/go-mysql v1.1.1
+```
+
+v.1.1.1 - is the last tag in repo, feel free to choose what you want.
+
+### Changelog
+This fork uses [Changelog](CHANGELOG.md).
+
+---
+
 ## Replication
 
 *Replication package has broken and disabled tests. Help appreciated.*
