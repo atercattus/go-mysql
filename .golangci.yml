@@ -1,0 +1,28 @@
+linters:
+  disable-all: true
+  enable:
+    # enabled by default in golangci-lint
+    - deadcode
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - structcheck
+    - typecheck
+    - unused
+    - varcheck
+    # additional linters
+    - gocritic
+    - goimports
+    - golint
+    - misspell
+    - nakedret
+    - nolintlint
+    - unconvert
+    - whitespace
+linters-settings:
+  nolintlint:
+    allow-unused: false
+    allow-leading-space: false
+    require-specific: true
