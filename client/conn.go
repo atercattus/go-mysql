@@ -176,10 +176,10 @@ func (c *Conn) Execute(command string, args ...interface{}) (*Result, error) {
 // Example:
 //
 // 		var result mysql.Result
-// 		conn.ExecuteSelectStreaming(`SELECT ... LIMIT 100500`, &result, func(row []FieldValue) (bool, error) {
+// 		conn.ExecuteSelectStreaming(`SELECT ... LIMIT 100500`, &result, func(row []mysql.FieldValue) error {
 //   		// Use the row as you want.
 //   		// You must not save FieldValue.AsString() value after this callback is done. Copy it if you need.
-//   		return false, nil
+//   		return nil
 // 		})
 //
 func (c *Conn) ExecuteSelectStreaming(command string, result *Result, perRowCallback SelectPerRowCallback) error {
