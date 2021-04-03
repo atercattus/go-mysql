@@ -8,8 +8,7 @@ A pure go library to handle MySQL network protocol and replication.
 
 *In the original it was forked from abandoned [siddontang/go-mysql](https://github.com/siddontang/go-mysql) repo.*
 
-## FAQ
-### How to migrate to this repo
+## How to migrate to this repo
 To change the used package in your repo it's enough to add this `replace` directive to your `go.mod`:
 ```
 replace github.com/siddontang/go-mysql => github.com/atercattus/go-mysql v1.1.1
@@ -17,10 +16,17 @@ replace github.com/siddontang/go-mysql => github.com/atercattus/go-mysql v1.1.1
 
 v.1.1.1 - is the last tag in repo, feel free to choose what you want.
 
-### Changelog
+## Changelog
 This repo uses [Changelog](CHANGELOG.md).
 
 ---
+# Content
+* [Slave replication](#replication)
+* [Incremental dumping](#canal)
+* [Client](#client)
+* [Fake server](#server)
+* [Failover](#failover)
+* [database/sql like driver](#driver)
 
 ## Replication
 
@@ -205,6 +211,27 @@ Tested MySQL versions for the client include:
 - 5.6.x
 - 5.7.x
 - 8.0.x
+
+### Example for SELECT streaming (v.1.1.1)
+You can use also streaming for large SELECT responses.
+The callback function will be called for every result row without storing the whole resultset in memory.
+`result.Fields` will be filled before the first callback call.
+
+```go
+// ...
+var result mysql.Result
+err := conn.ExecuteSelectStreaming(`select id, name from table LIMIT 100500`, &result, func(row []mysql.FieldValue) error {
+    for idx, val := range row {
+    	field := result.Fields[idx]
+    	// You must not save FieldValue.AsString() value after this callback is done.
+    	// Copy it if you need.
+    	// ...
+    }
+    return false, nil
+})
+
+// ...
+```
 
 ## Server
 
